@@ -1,9 +1,9 @@
 package com.mackittipat.springbootjpa.repository;
 
-import com.mackittipat.springbootjpa.domain.Promotion;
+import com.mackittipat.springbootjpa.domain.Groups;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PromotionRepository extends CrudRepository<Promotion, Long> {
+public interface GroupsRepository extends CrudRepository<Groups, Long> {
 }

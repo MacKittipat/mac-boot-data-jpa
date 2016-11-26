@@ -4,23 +4,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "group")
-public class Group {
+@Table(name = "groups")
+public class Groups {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "groups_id")
     private Promotion promotion;
 
-    public Group() {
+    public Groups() {
     }
 
     public Long getId() {

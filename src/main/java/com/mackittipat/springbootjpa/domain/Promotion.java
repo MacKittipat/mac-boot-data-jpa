@@ -15,13 +15,13 @@ import java.util.List;
 public class Promotion {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
 
-    @OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Group> groups = new ArrayList<>();
+    @OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
+    private List<Groups> groups = new ArrayList<>();
 
     public Promotion() {
     }
@@ -42,11 +42,11 @@ public class Promotion {
         this.name = name;
     }
 
-    public List<Group> getGroups() {
+    public List<Groups> getGroups() {
         return groups;
     }
 
-    public void setGroups(List<Group> groups) {
+    public void setGroups(List<Groups> groups) {
         this.groups = groups;
     }
 }
