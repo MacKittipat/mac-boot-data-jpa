@@ -1,18 +1,16 @@
-package com.mackittipat.springbootjpa.domain;
+package com.mackittipat.springdatajpa.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "promotion")
-public class Promotion {
+@Table(name = "groups")
+public class Groups {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,10 +18,11 @@ public class Promotion {
 
     private String name;
 
-    @OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
-    private List<Groups> groups = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "groups_id")
+    private Promotion promotion;
 
-    public Promotion() {
+    public Groups() {
     }
 
     public Long getId() {
@@ -42,11 +41,11 @@ public class Promotion {
         this.name = name;
     }
 
-    public List<Groups> getGroups() {
-        return groups;
+    public Promotion getPromotion() {
+        return promotion;
     }
 
-    public void setGroups(List<Groups> groups) {
-        this.groups = groups;
+    public void setPromotion(Promotion promotion) {
+        this.promotion = promotion;
     }
 }

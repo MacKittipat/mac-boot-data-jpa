@@ -1,9 +1,9 @@
-package com.mackittipat.springbootjpa;
+package com.mackittipat.springdatajpa;
 
-import com.mackittipat.springbootjpa.domain.Group;
-import com.mackittipat.springbootjpa.domain.Promotion;
-import com.mackittipat.springbootjpa.repository.GroupRepository;
-import com.mackittipat.springbootjpa.repository.PromotionRepository;
+import com.mackittipat.springdatajpa.domain.Groups;
+import com.mackittipat.springdatajpa.domain.Promotion;
+import com.mackittipat.springdatajpa.repository.GroupsRepository;
+import com.mackittipat.springdatajpa.repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +16,7 @@ public class App implements CommandLineRunner {
     private PromotionRepository promotionRepository;
 
     @Autowired
-    private GroupRepository groupRepository;
+    private GroupsRepository groupsRepository;
 
     public static void main( String[] args ) {
         SpringApplication.run(App.class, args);
@@ -24,28 +24,20 @@ public class App implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-//        Group group1 = new Group();
-//        group1.setName("Group1");
-//
-//        Group group2 = new Group();
-//        group2.setName("Group2");
-//
-//        List<Group> groupList = Arrays.asList(group1, group2);
 
         Promotion promotion = new Promotion();
         promotion.setName("Mac");
-//        promotion.setGroups(groupList);
         promotion = promotionRepository.save(promotion);
 
-        Group group1 = new Group();
+        Groups group1 = new Groups();
         group1.setName("Group1");
         group1.setPromotion(promotion);
-        group1 = groupRepository.save(group1);
+        group1 = groupsRepository.save(group1);
 
-        Group group2 = new Group();
+        Groups group2 = new Groups();
         group2.setName("Group2");
         group2.setPromotion(promotion);
-        group2 = groupRepository.save(group2);
+        group2 = groupsRepository.save(group2);
 
     }
 }

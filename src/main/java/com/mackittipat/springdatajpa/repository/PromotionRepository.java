@@ -1,6 +1,6 @@
-package com.mackittipat.springbootjpa.repository;
+package com.mackittipat.springdatajpa.repository;
 
-import com.mackittipat.springbootjpa.domain.Promotion;
+import com.mackittipat.springdatajpa.domain.Promotion;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
